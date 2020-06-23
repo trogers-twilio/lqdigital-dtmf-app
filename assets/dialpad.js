@@ -187,7 +187,6 @@ $(() => {
   }
 
   function handleDialpadDigit(digit) {
-    log(`Clicked digit ${digit}`);
     const dtmfStringInput = $(`${htmlClass.dtmfString} ${htmlTag.input}`);
     var currentValue = dtmfStringInput.val();
     dtmfStringInput.val(currentValue + digit);
