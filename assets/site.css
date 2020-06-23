@@ -1,0 +1,247 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700);
+body {
+  background-color: slategray;
+  font-family: Lato;
+  font-weight: 400;
+  letter-spacing: 1px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.disabled {
+  cursor: not-allowed !important;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.pad {
+  display: flex;
+  width: 300px;
+  height: fit-content;
+  background-color: #232323;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  padding-bottom: 20px;
+  box-shadow: 0 30px 35px -25px black;
+  animation: showPad 1s ease forwards 1;
+}
+.pad .dial-pad .dtmf-string {
+  display: flex;
+  width: 100%;
+  height: 80px;
+  background-color: #2d2d2d;
+}
+.pad .dial-pad .dtmf-string input {
+  background-color: transparent;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 100%;
+  height: 80px;
+  border: none;
+  font-size: 30px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+.pad .dial-pad .dtmf-string input:focus {
+  outline: none;
+}
+.pad .dial-pad #device-status {
+  color: lightgray;
+  display: flex;
+  margin-left: 1.25em;
+  margin-top: 10px;
+}
+.pad .dial-pad #device-status #device-status-value {
+  color: lightcoral;
+  margin-left: 0.5em;
+}
+.pad .dial-pad #device-status #device-status-value.status-online {
+  color: lightgreen;
+}
+.pad .dial-pad .digits {
+  overflow: hidden;
+  width: 80%;
+  margin: auto;
+  margin-top: 10px;
+}
+.pad .dial-pad .digits .dig-spacer {
+  width: 60px;
+  margin: 10px calc(50% - 90px);
+  float: left;
+}
+.pad .dial-pad .digits .dig {
+  color: white;
+  font-size: 30px;
+  float: left;
+  background-color: #2d2d2d;
+  text-align: center;
+  width: 60px;
+  height: 56px;
+  border-radius: 100%;
+  margin: 10px 0px;
+  padding-top: 4px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.pad .dial-pad .digits .dig.clicked {
+  animation: pulse-gray linear 0.3s 1;
+}
+.pad .dial-pad .digits .dig:nth-child(3n-1) {
+  margin: 10px calc(50% - 90px);
+}
+.pad .dial-pad .digits .dig.asterisk {
+  padding-top: 17px;
+  height: 43px;
+}
+.pad .dial-pad .digits .dig.pound {
+  padding-top: 10px;
+  height: 50px;
+}
+.pad .dial-pad .digits .dig .sub-dig {
+  font-size: 8px;
+  font-weight: 300;
+  position: relative;
+  top: -2px;
+}
+.pad .dial-pad .hangup {
+  background-color: darkred;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  margin: auto;
+  margin-top: 10px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 100px;
+}
+.pad .dial-pad .hangup.clicked {
+  animation: pulse-dark-red linear 0.3s 1;
+}
+.pad .dial-pad #audio-devices {
+  border-top: solid 2px lightgray;
+  color: lightgray;
+  margin-left: 1.25em;
+  margin-right: 1.25em;
+  margin-top: 10px;
+}
+.pad .dial-pad #audio-devices p {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+.pad .dial-pad #microphone-select,
+.pad .dial-pad #speaker-select {
+  width: 100%;
+  height: 30px;
+  font-size: 100%;
+  cursor: pointer;
+  border-radius: 0;
+  background-color: #2d2d2d;
+  border: none;
+  color: lightgray;
+  padding: 1px 5px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: color 0.3s ease, background-color 0.3s ease, border-bottom-color 0.3s ease;
+}
+.pad .dial-pad #microphone-select:hover,
+.pad .dial-pad #microphone-select:focus,
+.pad .dial-pad #speaker-select:hover,
+.pad .dial-pad #speaker-select:focus {
+  color: #2d2d2d;
+  background-color: lightgray;
+  border-bottom-color: #2d2d2d;
+}
+.pad .dial-pad #log {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column-reverse;
+  height: 9.5em;
+  margin-top: 20px;
+  overflow-y: scroll;
+  padding-left: 1.25em;
+}
+.pad .dial-pad #log-entries p {
+  color: lightgray;
+  font-size: 1em;
+  margin-left: 1em;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-indent: -1em;
+  user-select: all;
+  width: 90%;
+}
+@keyframes pulse-gray {
+  0% {
+    box-shadow: inset 0 0 0px 30px #2d2d2d, inset 0 0 0px 30px white;
+    -ms-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  10% {
+    -ms-transform: scale(0.8, 0.8);
+    -webkit-transform: scale(0.8, 0.8);
+    transform: scale(0.8, 0.8);
+  }
+  30% {
+    box-shadow: inset 0 0 0px 10px #2d2d2d, inset 0 0 0px 30px white;
+  }
+  60% {
+    box-shadow: inset 0 0 0px 0px #2d2d2d, inset 0 0 0px 0px white;
+    -ms-transform: scale(0.8, 0.8);
+    -webkit-transform: scale(0.8, 0.8);
+    transform: scale(0.8, 0.8);
+  }
+  100% {
+    -ms-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+@keyframes pulse-dark-red {
+  0% {
+    box-shadow: inset 0 0 0px 30px darkred, inset 0 0 0px 30px white;
+    -ms-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  10% {
+    -ms-transform: scale(0.8, 0.8);
+    -webkit-transform: scale(0.8, 0.8);
+    transform: scale(0.8, 0.8);
+  }
+  30% {
+    box-shadow: inset 0 0 0px 10px darkred, inset 0 0 0px 30px white;
+  }
+  60% {
+    box-shadow: inset 0 0 0px 0px darkred, inset 0 0 0px 0px white;
+    -ms-transform: scale(0.8, 0.8);
+    -webkit-transform: scale(0.8, 0.8);
+    transform: scale(0.8, 0.8);
+  }
+  100% {
+    -ms-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+}
+@keyframes showPad {
+  0% {
+    top: 50px;
+    opacity: 0;
+  }
+  100% {
+    top: 0px;
+    opacity: 1;
+  }
+}
+ 
